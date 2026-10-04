@@ -2,7 +2,7 @@
 
 ### Fictional worlds → timelines → map-based videos
 
-A Codex skill for researching fictional worlds and turning their events into map-based videos. It helps explain where events happen, who takes part, and how the situation changes—from verified sources to an approved video sample and subsequent segments.
+A Codex skill for researching fictional worlds and turning their events into map-based videos with Remotion. It helps explain where events happen, who takes part, and how the situation changes—from verified sources to an approved video sample and subsequent segments.
 
 Designed for films, TV series, anime, manga, books, and games. The skill's underlying instructions are written in Russian.
 
@@ -121,9 +121,17 @@ version for comparison.
 
 Defaults: **1920×1080, 16:9, fonts with Cyrillic support, and video samples of up to 30 seconds**. Backstory and flashbacks are excluded; spoilers within the selected interval are allowed. These settings can be adjusted for a specific project.
 
+## Video production with Remotion
+
+The skill uses Remotion for new map-based videos. Maps, participant markers, labels, camera movement, and event captions remain editable components. Animation follows the frame timeline, and the approved local soundtrack is included in the composition where practical.
+
+The [Remotion workflow](references/remotion.md) covers project setup, local assets, animation, preview, MP4 rendering, and output verification. Existing Remotion projects can be continued; switching an existing project from another renderer requires agreement.
+
+This repository contains the instructions. Remotion test projects, work-specific assets, and rendered videos are kept separately in the relevant project folder.
+
 ## Requirements for running the workflow
 
-The package contains Codex instructions and two reference guides. Research requires access to sources and local files. Design and MP4 production require tools for viewing images and creating video. The production method is chosen for each project.
+The package contains Codex instructions and three reference guides. Research requires access to sources and local files. Video production requires a Node.js environment, compatible React and Remotion packages, a rendering browser, and tools for inspecting the resulting media. Package versions and commands are recorded in the separate video project.
 
 Maps, portraits, video, and music are collected separately for the selected work. The skill calls for checking file availability and sources; a soundtrack streaming link does not itself provide an audio file or permission to use it.
 
@@ -135,3 +143,4 @@ Maps, portraits, video, and music are collected separately for the selected work
 | [agents/openai.yaml](agents/openai.yaml) | Display name, short description, and example invocation for the Codex interface |
 | [references/research.md](references/research.md) | Step-by-step guide to lore research and material collection |
 | [references/design-video.md](references/design-video.md) | Moodboards, frame designs, video samples, and revision cycles |
+| [references/remotion.md](references/remotion.md) | Remotion setup, frame-based animation, audio, rendering, and verification |
