@@ -1,143 +1,137 @@
 # lore-to-video
 
-### Лор произведения → хронология → видео на карте
+### Fictional worlds → timelines → map-based videos
 
-Скилл для Codex, который помогает объяснить историю через географию: где происходят события, кто в них участвует и как меняется ситуация. Он ведёт работу от проверенных источников до согласованного видеосемпла и следующих частей ролика.
+A Codex skill for researching fictional worlds and turning their events into map-based videos. It helps explain where events happen, who takes part, and how the situation changes—from verified sources to an approved video sample and subsequent segments.
 
-Подходит для фильмов, сериалов, аниме, манги, книг и игр. Инструкции скилла написаны на русском.
+Designed for films, TV series, anime, manga, books, and games. The skill's underlying instructions are written in Russian.
 
-[Установка](#установка) · [Примеры запросов](#примеры-запросов) · [Результаты](#что-сохраняется-в-проекте) · [English](#english-summary)
+[Installation](#installation) · [Example prompts](#example-prompts) · [Project outputs](#project-outputs) · [Skill files](#skill-files)
 
-## Как устроена работа
+## Workflow
 
-| Этап | Что делает Codex | Что выбирает пользователь |
+| Stage | What Codex does | What the user decides |
 |---|---|---|
-| Исследование | Проверяет лор, собирает карты, героев, хронологию и музыку | Произведение, версию и границы истории |
-| Мудборд и дизайн | Подбирает референсы и создаёт три варианта всего основного кадра | Оформление карты, подписей и участников |
-| Пробное видео | Собирает семпл до 30 секунд с выбранной музыкой | Интервал событий для проверки дизайна |
-| Доработка | Переносит комментарии в правила дизайна и создаёт новую версию того же семпла | Правки и готовность результата |
-| Следующая часть | Предлагает ещё не показанные интервалы истории | Какой период визуализировать дальше |
+| Research | Verifies lore and collects maps, characters, a timeline, and music | The work, adaptation, and story boundaries |
+| Moodboard and design | Gathers visual references and creates three complete frame designs | The layout of the map, labels, and participants |
+| Video sample | Produces a sample of up to 30 seconds with the selected music | Which story interval to use for evaluating the design |
+| Revisions | Records feedback in the design guidelines and creates a new version of the same sample | Requested changes and approval |
+| Next segment | Suggests story intervals that have not yet been visualized | Which part of the story to cover next |
 
-Можно поручить весь процесс или только один этап. При продолжении Codex читает материалы проекта, принятые решения и последние комментарии.
+Use the entire workflow or request a single stage. When continuing a project, Codex reads the existing materials, approved decisions, and latest feedback.
 
-## Что сохраняется в проекте
+## Project outputs
 
-Рабочие материалы остаются в папке произведения вместе с источниками и версиями результатов.
+Working materials are saved in a dedicated project folder alongside their sources and previous versions.
 
-| Материалы | Файлы и папки |
+| Material | Files and folders |
 |---|---|
-| Рамки задачи, решения и текущий этап | `README.md` |
-| Лор, география и события | `lore.md`, `geography.md`, `chronology.md` |
-| Источники и реестр изображений | `sources.md`, `assets.csv` |
-| Карты, портреты и эмблемы | `maps/`, `characters/`, `factions/` |
-| Саундтрек и сведения о записи | `soundtrack.md`, `music/` |
-| Мудборд и варианты кадра | `moodboard/`, `design/variants.html` |
-| Правила дизайна и комментарии | `design/design-guidelines.md`, `design/feedback.md` |
-| Версии пробного видео и следующие части | `samples/`, `videos/` |
+| Scope, decisions, and current stage | `README.md` |
+| Lore, geography, and events | `lore.md`, `geography.md`, `chronology.md` |
+| Sources and image inventory | `sources.md`, `assets.csv` |
+| Maps, portraits, and emblems | `maps/`, `characters/`, `factions/` |
+| Soundtrack and recording details | `soundtrack.md`, `music/` |
+| Moodboard and frame designs | `moodboard/`, `design/variants.html` |
+| Design guidelines and feedback | `design/design-guidelines.md`, `design/feedback.md` |
+| Video sample versions and subsequent segments | `samples/`, `videos/` |
 
-Мудборд и варианты кадра доступны для просмотра, видеорезультат сохраняется в MP4. Состав материалов зависит от порученного этапа и доступности источников.
+Moodboards and frame designs are available for review, and videos are saved as MP4 files. The deliverables depend on the requested stage and available sources.
 
-## Установка
+## Installation
 
-Нужен Codex с поддержкой локальных скиллов. Для клонирования этого закрытого репозитория также нужны Git и авторизация GitHub с доступом к `Lennydeer/lore-to-video`.
+Requires Codex with local skill support. Cloning this private repository also requires Git and GitHub authentication with access to `Lennydeer/lore-to-video`.
 
-### Через Git
+### Using Git
 
-Команды для новой установки в macOS или Linux:
+For a new installation on macOS or Linux:
 
 ```bash
 mkdir -p "$HOME/.agents/skills"
 git clone https://github.com/Lennydeer/lore-to-video.git "$HOME/.agents/skills/lore-to-video"
 ```
 
-Если папка `lore-to-video` уже существует, сначала стоит проверить установленную версию и сохранить свои изменения.
+If a `lore-to-video` folder already exists, check the installed version and preserve any local changes before proceeding.
 
-### Через ZIP
+### Using a ZIP download
 
-В GitHub: **Code → Download ZIP**. После распаковки папку нужно переименовать в `lore-to-video` и поместить в `~/.agents/skills/`. Файл `SKILL.md` должен лежать непосредственно внутри `lore-to-video`, без дополнительного уровня вложенности.
+On GitHub, select **Code → Download ZIP**. Extract the archive, rename the folder to `lore-to-video`, and place it under `~/.agents/skills/`. The `SKILL.md` file must sit directly inside `lore-to-video`, with no extra folder level.
 
-Codex обнаруживает локальные скиллы автоматически. Если новый скилл не появился, помогает перезапуск приложения. Расположение папок и порядок обнаружения описаны в [документации OpenAI](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
+Codex discovers local skills automatically. If the skill does not appear, restart the application. See the [OpenAI documentation](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) for skill locations and discovery behavior.
 
-### Обновление
+### Updating
 
-Для копии, установленной через Git:
+For a copy installed using Git:
 
 ```bash
 git -C "$HOME/.agents/skills/lore-to-video" pull --ff-only
 ```
 
-При установке через ZIP обновляется вся папка скилла. Собственные изменения стоит сохранить отдельно перед заменой файлов.
+For a ZIP installation, replace the entire skill folder with the new version. Save any local changes separately before replacing files.
 
-## Примеры запросов
+## Example prompts
 
-Вместо текста в квадратных скобках указываются произведение, события или папка проекта.
+Replace the bracketed placeholders with the work, events, or project folder you want to use.
 
-### Полный процесс
-
-```text
-Используй $lore-to-video для [название произведения и версия].
-Период: от [начальное событие] до [конечное событие].
-Собери источники, карты, героев и хронологию. Затем подготовь
-мудборд и три варианта основного кадра. После моего выбора
-предложи интервал и сделай видеосемпл до 30 секунд.
-```
-
-### Только исследование
+### Full workflow
 
 ```text
-Используй $lore-to-video. Исследуй [произведение и версия]
-от [начальное событие] до [конечное событие].
-Нужны лор, география, участники, хронология и источники.
-На этом этапе остановись после исследования.
+Use $lore-to-video for [title and adaptation].
+Cover the period from [opening event] to [closing event].
+Gather sources, maps, characters, and a timeline. Then prepare
+a moodboard and three complete frame designs. After I choose
+a design, suggest a story interval and create a video sample
+of up to 30 seconds.
 ```
 
-### Дизайн по готовым материалам
+### Research only
 
 ```text
-Используй $lore-to-video. Материалы собраны в [папка проекта].
-Прочитай их, подготовь мудборд и три варианта всего основного
-кадра: карта, год, событие, участники и поясняющий текст.
-Предложи выбор оформления.
+Use $lore-to-video to research [title and adaptation]
+from [opening event] to [closing event].
+I need lore, geography, participants, a timeline, and sources.
+Stop after completing the research at this stage.
 ```
 
-### Продолжение и правки
+### Design from existing materials
 
 ```text
-Используй $lore-to-video. Проект находится в [папка проекта].
-Прочитай README, правила дизайна и последние комментарии.
-Внеси согласованные правки в правила и собери новую версию
-того же видеосемпла. Сохрани предыдущую версию для сравнения.
+Use $lore-to-video. The materials are in [project folder].
+Read them, prepare a moodboard, and create three complete
+frame designs showing the map, year, event, participants,
+and explanatory text. Present the designs for selection.
 ```
 
-## Правила скилла
+### Continue and revise
 
-- Географические справки хранятся отдельно от событий. Для хронологии используются годы мира произведения.
-- Существенные утверждения проверяются по источникам. Неизвестные даты, расстояния и маршруты остаются отмеченными как неизвестные.
-- Карты и изображения сохраняются вместе со сведениями об источниках. Портреты должны соответствовать периоду истории и форме персонажа.
-- Дизайн согласуется на трёх вариантах всего кадра. Перед повторной сборкой комментарии переносятся в правила проекта.
-- Предыдущие версии видео сохраняются, а уже показанные интервалы отмечаются в README проекта.
+```text
+Use $lore-to-video. The project is in [project folder].
+Read the README, design guidelines, and latest feedback.
+Apply the agreed changes to the guidelines and produce
+a new version of the same video sample. Keep the previous
+version for comparison.
+```
 
-Настройки по умолчанию: **1920×1080, 16:9, шрифты с кириллицей, пробный ролик до 30 секунд**. Предыстория и флешбэки исключены; спойлеры внутри выбранного периода разрешены. Эти настройки можно уточнить для конкретного проекта.
+## Working principles
 
-## Что нужно для выполнения
+- Keep geographic descriptions separate from events. Use dates from the fictional world's timeline.
+- Verify substantial claims against sources. Mark unknown dates, distances, and routes as unknown.
+- Save maps and images with their source information. Character portraits must match the story period and character form.
+- Agree on the design by comparing three complete frames. Record feedback in the project guidelines before rendering revisions.
+- Preserve previous video versions and track completed story intervals in the project README.
 
-Пакет содержит инструкции для Codex и два справочника. Исследование требует доступа к источникам и работе с локальными файлами; дизайн и сборка MP4 — доступных инструментов просмотра изображений и создания видео. Конкретный способ сборки выбирается в проекте.
+Defaults: **1920×1080, 16:9, fonts with Cyrillic support, and video samples of up to 30 seconds**. Backstory and flashbacks are excluded; spoilers within the selected interval are allowed. These settings can be adjusted for a specific project.
 
-Карты, портреты, видео и музыка собираются отдельно для выбранного произведения. Скилл предусматривает проверку доступности файлов и источников; ссылка на прослушивание OST сама по себе не заменяет аудиофайл и разрешение на его использование.
+## Requirements for running the workflow
 
-## Файлы скилла
+The package contains Codex instructions and two reference guides. Research requires access to sources and local files. Design and MP4 production require tools for viewing images and creating video. The production method is chosen for each project.
 
-| Файл | Назначение |
+Maps, portraits, video, and music are collected separately for the selected work. The skill calls for checking file availability and sources; a soundtrack streaming link does not itself provide an audio file or permission to use it.
+
+## Skill files
+
+| File | Purpose |
 |---|---|
-| [SKILL.md](SKILL.md) | Основная инструкция, этапы, согласования и правила проверки |
-| [agents/openai.yaml](agents/openai.yaml) | Название, краткое описание и пример вызова для интерфейса Codex |
-| [references/research.md](references/research.md) | Пошаговый справочник по исследованию лора и сбору материалов |
-| [references/design-video.md](references/design-video.md) | Мудборд, варианты кадра, видеосемпл и цикл доработок |
-
-## English summary
-
-**lore-to-video** is a Russian-language Codex skill for researching fictional worlds and explaining their events through map-based videos.
-
-The workflow covers source research, geography, characters, chronology, soundtrack selection, a moodboard, three full-frame design options, a video sample of up to 30 seconds, and revisions based on user feedback. Users choose the scope, design and story interval at key stages.
-
-Install this folder under `~/.agents/skills/lore-to-video` and invoke `$lore-to-video` in Codex. Access to this private repository is required. Research and video production depend on the tools available in the Codex environment; the package includes instructions and references.
+| [SKILL.md](SKILL.md) | Main instructions, stages, approvals, and verification rules |
+| [agents/openai.yaml](agents/openai.yaml) | Display name, short description, and example invocation for the Codex interface |
+| [references/research.md](references/research.md) | Step-by-step guide to lore research and material collection |
+| [references/design-video.md](references/design-video.md) | Moodboards, frame designs, video samples, and revision cycles |
