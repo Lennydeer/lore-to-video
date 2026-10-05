@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lore to Video · Remotion"
+  short_description: "Research lore and create map videos only in Remotion"
+  default_prompt: "Use $lore-to-video-remotion to turn the approved story interval into a map video using Remotion for animation, audio, and MP4 export."

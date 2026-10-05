@@ -2,11 +2,37 @@
 
 ### Fictional worlds → timelines → map-based videos
 
-A Codex skill for researching fictional worlds and turning their events into map-based videos with Remotion. It helps explain where events happen, who takes part, and how the situation changes—from verified sources to an approved video sample and subsequent segments.
+Two standalone Codex skills for researching fictional worlds and turning their events into map-based videos. Both support films, TV series, anime, manga, books, and games, from verified sources to approved samples and subsequent story intervals.
 
-Designed for films, TV series, anime, manga, books, and games. The skill's underlying instructions are written in Russian.
+## Choose a skill
 
-[Installation](#installation) · [Example prompts](#example-prompts) · [Project outputs](#project-outputs) · [Skill files](#skill-files)
+| Skill | Use it for | Video production |
+|---|---|---|
+| **[lore-to-video-remotion](skills/lore-to-video-remotion/SKILL.md)** — recommended | The complete lore-to-map workflow with mandatory Remotion | Remotion for composition, animation, audio timing, review stills, and final MP4 export; no fallback renderer |
+| [lore-to-video](SKILL.md) | The original workflow and existing installations | Remotion by default, with the original project's renderer-transition rules |
+
+The new skill is independent and written in English. The original skill remains at the repository root for compatibility; its instructions are in Russian. Their documentation is shipped without franchise media, test projects, or rendered videos.
+
+[Install the Remotion skill](#install-lore-to-video-remotion) · [Install the original skill](#installation) · [Example prompts](#example-prompts) · [Project outputs](#project-outputs)
+
+## Install lore-to-video-remotion
+
+Download this private repository using **Code → Download ZIP**, or clone it with a GitHub account that has access. Copy only the `skills/lore-to-video-remotion` folder into your local skills directory, such as `~/.agents/skills/`. The resulting entrypoint must be `~/.agents/skills/lore-to-video-remotion/SKILL.md`. Keep its `agents/` and `references/` folders alongside it.
+
+Preserve any existing local changes before replacing an installed copy. To update, download or pull the latest repository and copy the complete skill folder again. This copied installation does not update itself when the repository checkout changes.
+
+Invoke the new skill explicitly to select the required Remotion workflow:
+
+```text
+Use $lore-to-video-remotion for [title and adaptation].
+Read the materials in [project folder] and use the approved design.
+Create a sample of up to 30 seconds for [opening event] through
+[closing event]. Use Remotion for animation, audio, and MP4 export.
+```
+
+The skill may also be selected automatically when a matching task requires Remotion. If Remotion is unavailable, it diagnoses the rendering problem and reports the blocker instead of changing production tools. Research, asset preparation, and media inspection remain available as supporting work.
+
+The new package contains its own [research guide](skills/lore-to-video-remotion/references/research.md), [design and review guide](skills/lore-to-video-remotion/references/design-review.md), and [Remotion production guide](skills/lore-to-video-remotion/references/remotion.md). It does not depend on the original skill being installed.
 
 ## Workflow
 
@@ -39,6 +65,8 @@ Moodboards and frame designs are available for review, and videos are saved as M
 
 ## Installation
 
+The steps in this section install the original `lore-to-video` skill. For the required Remotion workflow, use the separate package described above.
+
 Requires Codex with local skill support. Cloning this private repository also requires Git and GitHub authentication with access to `Lennydeer/lore-to-video`.
 
 ### Using Git
@@ -69,6 +97,8 @@ git -C "$HOME/.agents/skills/lore-to-video" pull --ff-only
 For a ZIP installation, replace the entire skill folder with the new version. Save any local changes separately before replacing files.
 
 ## Example prompts
+
+These examples use the original skill name. Use `$lore-to-video-remotion` instead to require Remotion throughout video production.
 
 Replace the bracketed placeholders with the work, events, or project folder you want to use.
 
@@ -131,11 +161,13 @@ This repository contains the instructions. Remotion test projects, work-specific
 
 ## Requirements for running the workflow
 
-The package contains Codex instructions and three reference guides. Research requires access to sources and local files. Video production requires a Node.js environment, compatible React and Remotion packages, a rendering browser, and tools for inspecting the resulting media. Package versions and commands are recorded in the separate video project.
+Each skill package contains Codex instructions and three reference guides. Research requires access to sources and local files. Video production requires a Node.js environment, compatible React and Remotion packages, a rendering browser, and tools for inspecting the resulting media. Package versions and commands are recorded in the separate video project.
 
 Maps, portraits, video, and music are collected separately for the selected work. The skill calls for checking file availability and sources; a soundtrack streaming link does not itself provide an audio file or permission to use it.
 
 ## Skill files
+
+The table describes the original root package. The separate Remotion-only package is in [`skills/lore-to-video-remotion/`](skills/lore-to-video-remotion/SKILL.md).
 
 | File | Purpose |
 |---|---|
